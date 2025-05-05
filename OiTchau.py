@@ -142,6 +142,8 @@ def main() -> None:
     for dia in dias:
         data_fmt = f"abr {int(dia)}, {ano_atual}"
         ajustes.extend([
+            {"data": data_fmt, "hora": "09:00", "tipo": "Entrada", "local": "HOME OFFICE", "motivo": "Outro"},
+            {"data": data_fmt, "hora": "12:00", "tipo": "intervalo Início", "local": "HOME OFFICE", "motivo": "Outro"},
             {"data": data_fmt, "hora": "13:00", "tipo": "intervalo Final", "local": "HOME OFFICE", "motivo": "Outro"},
             {"data": data_fmt, "hora": "18:00", "tipo": "Saída", "local": "HOME OFFICE", "motivo": "Outro"},
         ])
