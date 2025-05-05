@@ -1,113 +1,57 @@
-# Ajuste de Ponto Automático 📅🚀
+# Ajuste de Ponto Automation 🎯
 
-Bem-vindo ao **AjustePontoBot**! Este projeto foi criado para **automatizar o preenchimento de ajustes de ponto** na plataforma [Oitchau](https://admin.oitchau.com.br/punches/), de forma segura, rápida e prática.
+Automação Selenium para realizar ajustes de ponto no sistema [OiTchau](https://admin.oitchau.com.br/punches/).
 
-> **Aviso Legal:** Este projeto é fornecido "como está". **Você é integralmente responsável** por seu uso. Não me responsabilizo por quaisquer danos, perdas ou problemas causados direta ou indiretamente pelo uso deste software.
+## ⚙️ Descrição
 
----
+Este script Python abre o navegador Chrome no perfil do usuário para manter a sessão já autenticada e:
+- Navega até o módulo de **Ajuste de Ponto**.
+- Insere data, hora, tipo, localização e motivo.
+- Confirma o lançamento de pontos de entrada, intervalos e saída.
 
-## 🔹 Sobre o Projeto
+## 🛑 Aviso
 
-Este bot usa **Selenium** para:
-- Abrir seu navegador Chrome.
-- Reutilizar sua sessão já logada.
-- Preencher datas e horários de ajustes de ponto automaticamente.
-- Confirmar os registros de forma segura.
+**Uso por sua conta e risco.**  
+Não nos responsabilizamos por qualquer uso indevido, bloqueios ou alterações de dados.  
 
----
+## 🚀 Pré-requisitos
 
-## 🔹 Requisitos para Rodar
+1. Google Chrome instalado (versão compatível com Chromedriver 136.x).  
+2. Python 3.13+.  
+3. Selenium:
+   ```bash
+   pip install selenium
+   ```
+4. Chromedriver em `C:\chromedriver-win64\chromedriver.exe`.  
+5. Perfil Chrome preparado em `C:\selenium\profile`.
 
-### 📅 Antes de Começar
-- **Você precisa estar já logado** no sistema Oitchau no Chrome.
-- **O navegador Chrome deve estar fechado** antes de rodar o script.
+## 📦 Instalação
 
-### 🔧 Instalando o Ambiente
+1. Clone este repositório:
+   ```bash
+   git clone <url-do-repo>
+   cd <repo>
+   ```
+2. Verifique se o **chromedriver.exe** está em `C:\chromedriver-win64\`.  
+3. Abra o Chrome usando este perfil:
+   ```bash
+   "C:\Program Files\Google\Chrome\Application\chrome.exe" --user-data-dir="C:\selenium\profile"
+   ```
+   Faça login em `admin.oitchau.com.br`, feche o navegador.
 
-#### 1. Instale o Chocolatey (caso não tenha):
-
-Abra o **PowerShell como administrador** e rode:
-
-```bash
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iwr https://community.chocolatey.org/install.ps1 -UseBasicParsing | iex
-```
-
-#### 2. Instale o Python 3.11 pelo Chocolatey:
-
-```bash
-choco install python --version=3.11.7 -y
-```
-
-#### 3. Atualize o pip:
-
-```bash
-python -m pip install --upgrade pip
-```
-
-#### 4. Instale o Selenium:
-
-```bash
-pip install selenium
-```
-
-#### 5. Certifique-se que o ChromeDriver será gerenciado automaticamente pelo Selenium (versão 4.6+).
-
-Não é preciso instalar o `chromedriver` manualmente.
-
----
-
-## 🔹 Como Executar o Projeto
-
-1. Feche seu navegador Chrome.
-2. No terminal/powershell, navegue até a pasta do projeto:
-
-```bash
-cd caminho/da/pasta/do/projeto
-```
-
-3. Execute o script:
+## 🎯 Como usar
 
 ```bash
 python ajuste_ponto.py
 ```
+- Insira os dias desejados (ex: `1,2,10`).  
+- O bot fará todos os lançamentos automaticamente.  
 
-4. O terminal irá perguntar:
+## 🔧 Configurações
 
-```plaintext
-Digite os dias separados por vírgula (ex: 10,12,13):
-```
+- **`profile_dir`** no construtor do bot: caminho para o diretório de perfil.  
+- **`executable_path`** em `Service`: caminho para `chromedriver.exe`.  
 
-Exemplo de entrada:
+## 📄 Licença
 
-```plaintext
-14,15,16
-```
-
-5. O bot irá abrir o navegador, usar sua sessão logada e registrar todos os ajustes de ponto para os dias informados.
-
----
-
-## 🔹 Considerações Importantes
-
-- 📦 **Verifique se você está realmente logado** no sistema Oitchau antes de rodar.
-- 🔐 **Não abra o Chrome** enquanto o script estiver rodando.
-- 🚫 **Não modifique o script se não tiver certeza** do que está fazendo.
-- 🔧 **Atualize seu Chrome** para a última versão para evitar incompatibilidades.
-
----
-
-## 📈 Melhorias Futuras (Planejado)
-- Interface com calendário gráfico para selecionar os dias.
-- Captura de tela automática de cada ajuste.
-- Geração de relatórios de ajustes feitos.
-
----
-
-> **Feito para facilitar seu dia! Use com responsabilidade!** 🚀
-
----
-
-## 🌐 Contato
-
-Este é um projeto aberto e sem garantias.
-Utilize, modifique e melhore como desejar! 😉
+MIT License
